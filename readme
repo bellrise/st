@@ -1,0 +1,6 @@
+st
+==
+
+This is my custom fork of the st terminal, originally from suckless:
+<https://git.suckless.org/st>. Because this is my fork, I removed the
+Makefile replacing it with a much shorter and cleaner buildfile.
