@@ -10,8 +10,8 @@ libs     m rt X11 util Xft Xrender
 src      *.c
 out      st
 
-@install cp -f st /usr/local/bin        \
-		&& chmod 755 /usr/local/bin/st  \
-		&& tic -sx st.info
+@install cp -f st /usr/local/bin
+		 chmod 755 /usr/local/bin/st
+		 tic -sx st.info
 
 @uninstall rm -f /usr/local/bin/st
