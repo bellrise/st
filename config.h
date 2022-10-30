@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Noto Mono:size=12:style=Regular";
+static char *font = "Camingo Code:size=12:style=Regular";
 static int borderpx = 15;
 static float alpha = 1;
 
@@ -68,6 +68,11 @@ static unsigned int blinktimeout = 800;
  */
 static unsigned int cursorthickness = 2;
 
+const int boxdraw = 1;
+const int boxdraw_bold = 0;
+
+const int boxdraw_braille = 0;
+
 /*
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
  * it
@@ -95,6 +100,7 @@ char *termname = "st-256color";
 unsigned int tabspaces = 3;
 
 
+#if 0
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	"#1f1f1f",   /* our default black is not actually black */
@@ -117,9 +123,38 @@ static const char *colorname[] = {
 
 	[256] = "#ffffff", /* default foreground colour */
 	[257] = "#1f1f1f", /* default background colour */
-	[258] = "#C3BAC6", /* 575268 */
+	[258] = "#5fbfb4", /* cursor color */
 };
+#endif
 
+/* Catppuccin Mocha */
+static const char *colorname[] = {
+	/* 8 normal colors */
+	"#45475A",
+	"#F38BA8",
+	"#A6E3A1",
+	"#F9E2AF",
+	"#89B4FA",
+	"#F5C2E7",
+	"#94E2D5",
+	"#BAC2DE",
+
+	/* 8 bright colors */
+	"#585B70",
+	"#F38BA8",
+	"#A6E3A1",
+	"#F9E2AF",
+	"#89B4FA",
+	"#F5C2E7",
+	"#94E2D5",
+	"#A6ADC8",
+
+[256] = "#CDD6F4", /* default foreground colour */
+// [257] = "#1E1E2E", /* default background colour */
+[257] = "#1F1F1F",
+[258] = "#F5E0DC", /*575268*/
+
+};
 
 /*
  * foreground, background, cursor, reverse cursor
@@ -190,8 +225,8 @@ static Shortcut shortcuts[] = {
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
-	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
+	{ TERMMOD,              XK_plus,        zoom,           {.f = +10} },
+	{ TERMMOD,              XK_underscore,  zoom,           {.f = -10} },
 	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
